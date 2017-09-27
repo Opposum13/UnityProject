@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4783296248831722}
   - component: {fileID: 212856503619192874}
+  - component: {fileID: 68544345504827528}
   m_Layer: 0
   m_Name: moving-platform-positive
   m_TagString: Untagged
@@ -33,13 +34,30 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1510382208531840}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.937451, y: -4.7092013, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.94166535, y: -1.7011435, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &68544345504827528
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1510382208531840}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.9540135, y: 0.98104715}
+  - {x: 0.9999998, y: 0.98104715}
 --- !u!212 &212856503619192874
 SpriteRenderer:
   m_ObjectHideFlags: 1
