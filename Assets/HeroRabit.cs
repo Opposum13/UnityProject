@@ -107,17 +107,13 @@ public class HeroRabit : MonoBehaviour {
         if (hit)
         {
             isGrounded = true;
-
             //Перевіряємо чи ми опинились на платформі
             if (hit.transform != null
-            && hit.transform.parent != null)
+            && hit.transform.GetComponent<Platform>() != null)
             {
-                if (hit.transform.GetComponentInParent<MovingPlatform>() != null)
-                {
-                    //Приліпаємо до платформи
-                    SetNewParent(this.transform, hit.transform.parent);
-                }
-            } 
+                //Приліпаємо до платформи
+                SetNewParent(this.transform, hit.transform);
+            }
         }
         else
         {
