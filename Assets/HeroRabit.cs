@@ -12,6 +12,9 @@ public class HeroRabit : MonoBehaviour {
     float JumpTime = 0f;
     public float MaxJumpTime = 2f;
     public float JumpSpeed = 2f;
+    public bool isBig = false;
+    public bool dead = false;
+    float timeToWaitForDeath = 1;
 
     Transform heroParent = null;
 
@@ -27,7 +30,18 @@ public class HeroRabit : MonoBehaviour {
         //[-1, 1]
         float value = Input.GetAxis("Horizontal");
         Animator animator = GetComponent<Animator>();
-
+        if (dead)
+        {
+            animator.SetBool("death", true);
+            if (timeToWaitForDeath <= 0)
+            {
+                animator.SetBool("death", false);
+                LevelController.current.onRabitDeath(this);
+                timeToWaitForDeath = 1;
+                dead = false;
+            }
+            else timeToWaitForDeath -= Time.deltaTime;
+        }
         if (Mathf.Abs(value) > 0)
         {
             Vector2 vel = myBody.velocity;
@@ -152,8 +166,26 @@ public class HeroRabit : MonoBehaviour {
         
 
     }
-   
 
+    public void becomeBig()
+    {
+        isGrounded = true;
+        if (isBig==false)
+        {
+            this.transform.localScale = this.transform.localScale * 2;
+            isBig = true;
+        }
+    }
+
+    public void becomeSmall()
+    {
+
+        if (isBig == true)
+        {
+            this.transform.localScale = this.transform.localScale / 2;
+            isBig = false;
+        }
+    }
 
     // Update is called once per frame
     void Update () {
